@@ -9,7 +9,9 @@ CREATE TABLE breeding_animal_species (
 CREATE TABLE breeding_animal (
     animal_id VARCHAR(70) PRIMARY KEY,
     animal_name TEXT,
-    description TEXT
+    animal_species VARCHAR(70),
+    description TEXT,
+    FOREIGN KEY (animal_species) REFERENCES breeding_animal_species(species_id)
 );
 
 CREATE TABLE breeding_species_min_weight_sale (
