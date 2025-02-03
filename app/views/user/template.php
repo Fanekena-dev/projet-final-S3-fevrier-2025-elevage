@@ -12,7 +12,7 @@ $baseUrl = Flight::get('flight.base_url');
     <link rel="stylesheet" href="<?= $baseUrl ?>/public/assets/framework/bootstrap-5.3.3/css/bootstrap.min.css">
     <link href="<?= $baseUrl ?>/public/assets/lib/fontawesome-free-6.7.2-web/css/all.min.css" rel="stylesheet">
     <!-- Custom css -->
-    <link rel="stylesheet" href="<?= $baseUrl ?>/public/assets/src/w2/css/theme.css">
+    <link rel="stylesheet" href="<?= $baseUrl ?>/public/assets/src/css/w2/theme.css">
 </head>
 
 <body>
@@ -37,15 +37,15 @@ $baseUrl = Flight::get('flight.base_url');
                         </li>
                         <!-- Login Button -->
                         <li class="nav-item mb-2 mb-sm-0">
-                            <a class="btn btn-outline-success w-100 me-3" href="admin"
+                            <a class="btn btn-outline-primary w-100 me-3" href="admin"
                                 data-translate="admin_login">Admin Login</a>
                         </li>
                         <li class="nav-item mb-2 mb-sm-0">
-                            <a class="btn btn-outline-success w-100 me-3" href="user" data-translate="login">Login</a>
+                            <a class="btn btn-outline-primary w-100 me-3" href="user" data-translate="login">Login</a>
                         </li>
                         <!-- Register Button -->
                         <li class="nav-item">
-                            <a class="btn btn-success w-100" href="register" data-translate="register">Register</a>
+                            <a class="btn btn-primary w-100" href="register" data-translate="register">Register</a>
                         </li>
                     </ul>
                 </div>
@@ -65,7 +65,7 @@ $baseUrl = Flight::get('flight.base_url');
     <script src="<?= $baseUrl ?>/public/assets/lib/jquery-3.7.1.min.js"></script>
     <script src="<?= $baseUrl ?>/public/assets/lib/chart.umd.js"></script>
     <!-- Custom Scripts -->
-    <script src="<?= $baseUrl ?>/public/assets/js/w2/main.js"></script>
+    <script src="<?= $baseUrl ?>/public/assets/src/js/w2/main.js"></script>
 </body>
 
 </html>

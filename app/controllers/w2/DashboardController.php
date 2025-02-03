@@ -12,7 +12,7 @@ class DashboardController
     public function renderDashboard()
     {
         $data = ['title' => 'dashboard', 'page' => 'dashboard'];
-        FLight::render('user/dashboard', $data);
+        FLight::render('user/template', $data);
         exit();
     }
 }
