@@ -26,11 +26,11 @@ $router->group(
 $router->group('/user', function () use ($router) {
     $router->get('/sign-in', [DashboardController::class, 'renderDashboard']);
     $router->get('/dashboard', [DashboardController::class, 'renderDashboard']);
-    $router->get('/availableAnimals', [DashboardController::class, 'renderAvailableAnimals']);
 });
 
 // $router->get('/animal', [DashboardController::class, 'renderAvailableAnimals']);
 
 $router->group('/animals', function () use ($router) {
-  $router->get('', [DashboardController::class, 'renderAvailableAnimals']);
+  $router->get('/date', [DashboardController::class, 'getMyAnimals']);
+  $router->get('/availableAnimals', [DashboardController::class, 'renderAvailableAnimals']);
 });

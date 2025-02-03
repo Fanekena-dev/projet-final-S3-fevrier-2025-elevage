@@ -2,7 +2,7 @@
     namespace app\models\w3;
     use Flight;
     use PDO;
-    class AvalaibleAnimalsModel
+    class MyAnimalsModel
      {
         private $idUser;
         private $db;
@@ -31,7 +31,7 @@
                                         FROM $this->table AS bam2 
                                         WHERE bam2.animal_id = bam.animal_id)
                     AND bam.mvt_type = 'IN'
-                    AND bam.user_id = $this->idUser
+                    AND bam.user_id = '$this->idUser'
                     ";
             
             $stmt = $this->db->query($sql);
@@ -58,10 +58,11 @@
                     FROM $this->table AS bam 
                     WHERE bam.insert_date = (SELECT MAX(bam2.insert_date) 
                                         FROM $this->table AS bam2 
-                                        WHERE bam2.animal_id = bam.animal_id)
+                                        WHERE bam2.animal_id = bam.animal_id
+                                        AND bam2.insert_date <= '$date'
+                                        )
                     AND bam.mvt_type = 'IN'
-                    AND bam.user_id = $this->idUser
-                    AND bam.insert_date <= '$date'
+                    AND bam.user_id = '$this->idUser'
                     ";
             
             $stmt = $this->db->query($sql);
@@ -99,6 +100,7 @@
             if ($animal) {  // Vérifie que l'animal existe
                 $responseArray['animal_id'] = $idAnimal;
                 $responseArray['animal_name'] = $animal['animal_name'];
+                $responseArray['description'] = $animal['description'];
                 $responseArray['animal_species'] = $animal['animal_species'];
                 $responseArray['day_without_eating'] = $this->getAnimalDayWithoutEating($idAnimal);
                 $responseArray['weight_loss_percent'] = $this->getAnimalWeightLoss($idAnimal);

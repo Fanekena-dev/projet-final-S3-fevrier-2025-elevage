@@ -9,7 +9,7 @@ function handleDate() {
 
     function setDate(date) {
         dateInput.val(date.toISOString().split('T')[0]);
-        animals = fetchAnimals();
+        fetchAnimals(); // Fetch animals when the date changes
     }
 
     function changeDate(days) {
@@ -24,15 +24,21 @@ function handleDate() {
         setDate(currentDate);
     }
 
+    // Set initial date
     setDate(new Date('2025-02-03'));
+
     $('#increase-day').click(() => changeDate(1));
     $('#decrease-day').click(() => changeDate(-1));
+
+    // Listen for manual date changes
+    dateInput.change(() => fetchAnimals());
 }
 
 function fetchAnimals() {
     $.ajax({
-        url: `${baseUrl}/animals`,
+        url: `${baseUrl}/animals/date`,
         method: `GET`,
+        data: { date: $('#date-input').val() },
         success: (animals) => {
             renderAnimals(animals);
         },
@@ -43,14 +49,23 @@ function fetchAnimals() {
 }
 
 function renderAnimals(animals) {
+    $('#section2').html(""); 
+
+    let html = `<div class="animal-list">`;
+    
     animals.forEach(animal => {
-        html = `
+        html += `
             <div class="card">
-                <img src="${animal.pic}" alt="${animal.pic}">
-                <h2>${animal.name}</h2>
-                <p>${animal.description}</p>
+                <img src="${animal.pic}" alt="${animal.animal_name}">
+                <div class="card-body">
+                    <h2>${animal.animal_name}</h2>
+                    <p>${animal.description}</p>
+                </div>
             </div>
-            `;
-        $('#section2').append(html);
+        `;
     });
+
+    html += `</div>`;
+    $('#section2').append(html);
 }
+
