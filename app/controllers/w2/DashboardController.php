@@ -15,4 +15,13 @@ class DashboardController
         FLight::render('user/template', $data);
         exit();
     }
+
+    public function availableAnimals()
+    {
+        $db = Flight::db();
+        $availableAnimalsModel = new AvalaibleAnimalsModel($db);
+        $availableAnimals = $availableAnimalsModel->getAvailableAnimals();
+        $data = ['title' => 'Available Animals', 'availableAnimals' => $availableAnimals];
+        Flight::render('user/available_animals', $data);
+    }
 }
