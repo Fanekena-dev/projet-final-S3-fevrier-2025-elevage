@@ -82,7 +82,7 @@ CREATE TABLE breeding_user_animal_mvt (
     animal_id VARCHAR(70),
     user_id VARCHAR(70),
     insert_date DATE DEFAULT CURRENT_TIMESTAMP,
-    mvt_type VARCHAR(3),
+    mvt_type VARCHAR(3VARCHAR(3), -- IN/OUT
     mvt_price DECIMAL(15,2),
     FOREIGN KEY (animal_id) REFERENCES breeding_animal(animal_id),
     FOREIGN KEY (user_id) REFERENCES breeding_user(user_id)
@@ -124,7 +124,7 @@ CREATE TABLE breeding_animal_market_mvt (
     user_id VARCHAR(70),
     admin_id VARCHAR(70),
     insert_date DATE DEFAULT CURRENT_TIMESTAMP,
-    mvt_type INT,
+    mvt_type VARCHAR(3), -- IN/OUT
     mvt_price DECIMAL(15,2),
     FOREIGN KEY (animal_id) REFERENCES breeding_animal(animal_id),
     FOREIGN KEY (user_id) REFERENCES breeding_user(user_id),
