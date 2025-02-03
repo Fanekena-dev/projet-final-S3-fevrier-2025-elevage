@@ -13,4 +13,12 @@ class AdminSigninControllers
     Flight::render('adminSignin');
     exit();
   }
+  public function get_required_fields():array 
+  {
+    return ['admin-id', 'admin-pwd'];
+  }
+  public function signin()
+  {
+
+  }
 }
