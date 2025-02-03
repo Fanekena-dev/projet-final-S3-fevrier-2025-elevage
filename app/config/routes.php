@@ -5,6 +5,7 @@ use flight\net\Router;
 
 use app\controllers\w1\LandingPageControllers;
 use app\controllers\w1\AdminSigninControllers;
+use app\controllers\w2\DashboardController;
 
 /** 
  * @var Router $router 
@@ -21,3 +22,8 @@ $router->group(
     $router->get('/sign-in', [AdminSigninControllers::class, 'signinPage']);
   }
 );
+
+$router->group('/user', function () use ($router) {
+    $router->get('/sign-in', [DashboardController::class, 'renderDashboard']);
+    $router->get('/dashboard', [DashboardController::class, 'renderDashboard']);
+});

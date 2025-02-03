@@ -1,3 +1,7 @@
+<?php
+$baseUrl = Flight::get('flight.base_url');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,11 +15,11 @@
   Landing Page for our website
   <p>
     Tokony formulaire
-    <a href="">Sign In</a>
+    <a href="<?= $baseUrl ?>/user/sign-in">Sign In</a>
   </p>
   <p>
     Tokony formulaire
-    <a href="">Sign Up</a>
+    <a href="<?= $baseUrl ?>/user/sign-up">Sign Up</a>
   </p>
   <footer>
     <p>3251 - 3286 - 3291</p>
