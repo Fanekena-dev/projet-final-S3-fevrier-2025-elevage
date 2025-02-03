@@ -19,7 +19,7 @@
   </p>
   <footer>
     <p>3251 - 3286 - 3291</p>
-    <a href="/admin/login">Admin</a>
+    <a href="<?= Flight::get('flight.base_url'); ?>/admin/sign-in">Admin</a>
   </footer>
 </body>
 
