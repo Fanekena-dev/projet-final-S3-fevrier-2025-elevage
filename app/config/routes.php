@@ -14,5 +14,6 @@ use app\controllers\w2\DashboardControllers;
 $router->get('/', [LandingPageControllers::class, 'landingPage']);
 
 $router->group('/user', function () use ($router) {
+    $router->get('/login', [DashboardControllers::class, 'renderDashboard']);
     $router->get('/dashboard', [DashboardControllers::class, 'renderDashboard']);
 });
