@@ -2,7 +2,7 @@
 namespace app\controllers\w2;
 
 use FLight;
-use app\models\w3\AvalaibleAnimals;
+use app\models\w3\AvalaibleAnimalsModel;
 
 class DashboardController
 {
@@ -18,9 +18,9 @@ class DashboardController
     }
 
     
-    public function renderAvalaibleAnimals()
+    public function renderAvailableAnimals()
     {
-        $model=new AvalaibleAnimals(Flight::mysql());   
+        $model=new AvalaibleAnimalsModel(Flight::mysql());   
         $availableAnimals = $model->getAvailableAnimals();
         $data = ['title' => 'Available Animals', 'availableAnimals' => $availableAnimals];
         Flight::render('user/available_animals', $data);
