@@ -1,5 +1,7 @@
 $(document).ready(function () {
-    handleDate();
+    const dateInput = $('#date-input');
+    if (dateInput.val() != null)
+        handleDate();
 });
 
 // 03 Feb 2025
@@ -25,7 +27,7 @@ function handleDate() {
     }
 
     // Set initial date
-    setDate(new Date('2025-02-03'));
+    setDate(minDate);
 
     $('#increase-day').click(() => changeDate(1));
     $('#decrease-day').click(() => changeDate(-1));

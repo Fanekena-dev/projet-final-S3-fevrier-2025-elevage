@@ -18,13 +18,12 @@ class DashboardController
         exit();
     }
 
-    
     public function renderAvailableAnimals()
     {
-        $model=new AvalaibleAnimalsModel(Flight::mysql());   
+        $model = new AvalaibleAnimalsModel(Flight::mysql());
         $availableAnimals = $model->getAvailableAnimals();
-        $data = ['title' => 'Available Animals', 'availableAnimals' => $availableAnimals];
-        Flight::json($availableAnimals);
+        $data = ['title' => 'Available Animals', 'page' => 'available_animals', 'availableAnimals' => $availableAnimals];
+        FLight::render('user/template', $data);
     }
 
     public function getMyAnimals()
