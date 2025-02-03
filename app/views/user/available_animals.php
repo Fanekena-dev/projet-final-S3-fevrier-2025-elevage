@@ -1,35 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?=$title?></title>
-</head>
-<body>
-    <h1><?=$title?></h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Animal ID</th>
-                <th>Animal Name</th>
-                <th>Animal Type</th>
-                <th>Animal DWE</th>
-                <th>Animal WL</th>
-                <th>Animal Actual Weight</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($availableAnimals as $animal): ?>
-                <tr>
-                    <td><?=$animal['animal_id']?></td>
-                    <td><?=$animal['animal_name']?></td>
-                    <td><?=$animal['animal_species']?></td>
-                    <td><?=$animal['day_without_eating']?></td>
-                    <td><?=$animal['weight_loss_percent']?></td>
-                    <td><?=$animal['weight']?></td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-</body>
-</html>
+<section class="container">
+    <h1 class="ms-3">Available animals</h1>
+
+    <div class="animal-list">
+        <?php foreach ($availableAnimals as $animal): ?>
+            <div class="card">
+                <strong class="mt-3"><?= $animal['animal_id'] ?></strong>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Name: </strong><?= $animal['animal_name'] ?></li>
+                        <li><strong>Specy: </strong><?= $animal['animal_species'] ?></li>
+                        <li><strong>Day without eating: </strong><?= $animal['day_without_eating'] ?></li>
+                        <li><strong>Weight loss percent: </strong><?= $animal['weight_loss_percent'] ?></li>
+                        <li><strong>Weight: </strong><?= $animal['weight'] ?></li>
+                    </ul>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</section>

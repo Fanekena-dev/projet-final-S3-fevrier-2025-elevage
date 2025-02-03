@@ -4,8 +4,9 @@
         <nav class="col-md-3 d-none d-md-block sidebar p-3">
             <h2>Logo</h2>
             <ul class="nav flex-column">
-                <li class="nav-item"><a class="nav-link" href="#section1">Section1</a></li>
-                <li class="nav-item"><a class="nav-link" href="#section2">Section2</a></li>
+                <li class="nav-item"><a class="nav-link" href="#section1">Change date</a></li>
+                <li class="nav-item"><a class="nav-link" href="#section2">My animals</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= $baseUrl ?>/animals/availableAnimals">Market</a></li>
             </ul>
         </nav>
 
