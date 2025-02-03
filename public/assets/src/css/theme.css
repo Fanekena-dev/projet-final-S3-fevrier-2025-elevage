@@ -1,0 +1,87 @@
+/* Light theme */
+html[data-bs-theme="light"] footer,
+html[data-bs-theme="light"] header {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Dark theme */
+html[data-bs-theme="dark"] footer,
+html[data-bs-theme="dark"] header {
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2); /* Light shadow with white color */
+}
+
+/* ---------------------------
+   Bootstrap classes in dark mode
+--------------------------- */
+
+html[data-bs-theme="dark"] .btn {
+    color: whitesmoke; 
+}
+[data-bs-theme="dark"] .shadow-lg {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1), 0 0 25px rgba(255, 255, 255, 0.05) !important; /* Lighter glow from the card */
+}
+
+/* ---------------------------
+   Theme toggler button
+--------------------------- */
+
+
+.theme-toggler {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    width: 60px; 
+    height: 30px; 
+    background-color: #f0f0f0; 
+    border-radius: 50px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+/* Thumb of the toggler */
+.theme-toggler .toggle-thumb {
+    width: 24px; 
+    height: 24px; 
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 3px; /* Start at the left side */
+    transition: left 0.3s ease;
+}
+
+/* Sun and Moon Icons */
+.theme-toggler .icon {
+    font-size: 16px; 
+    color: #555; 
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+/* Sun icon on the left */
+.theme-toggler .icon.sun {
+    left: 8px; 
+}
+/* Moon icon on the right */
+.theme-toggler .icon.moon {
+    right: 8px;
+}
+
+html[data-bs-theme="light"] .theme-toggler {
+    background-color: #333; 
+}
+html[data-bs-theme="dark"] .theme-toggler {
+    background-color: #f0f0f0; 
+}
+html[data-bs-theme="dark"] .theme-toggler .toggle-thumb {
+    left: 30px; /* Move the thumb to the right side in dark mode */
+    background-color: #333;
+}
+
+html[data-bs-theme="light"] .theme-toggler .icon {
+    color: #fff; 
+}
+html[data-bs-theme="dark"] .theme-toggler .icon {
+    color: #333; 
+}
