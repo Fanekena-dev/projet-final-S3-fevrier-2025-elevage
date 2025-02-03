@@ -1,6 +1,5 @@
 // This main script is for each view on this project
-var ETU = '3286';
-var baseUrl = `/ETU00${ETU}/preparation-examen-web`; // Should be the same as the one in config
+var baseUrl = `/projet-final-S3-fevrier-2025-elevage`; // Should be the same as the one in config
 
 $(document).ready(function () {
     setMainMarginTop();
