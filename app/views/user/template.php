@@ -13,6 +13,7 @@ $baseUrl = Flight::get('flight.base_url');
     <link href="<?= $baseUrl ?>/public/assets/lib/fontawesome-free-6.7.2-web/css/all.min.css" rel="stylesheet">
     <!-- Custom css -->
     <link rel="stylesheet" href="<?= $baseUrl ?>/public/assets/src/css/w2/theme.css">
+    <link rel="stylesheet" href="<?= $baseUrl ?>/public/assets/src/css/w2/dashboard.css">
 </head>
 
 <body>
@@ -66,6 +67,9 @@ $baseUrl = Flight::get('flight.base_url');
     <script src="<?= $baseUrl ?>/public/assets/lib/chart.umd.js"></script>
     <!-- Custom Scripts -->
     <script src="<?= $baseUrl ?>/public/assets/src/js/w2/main.js"></script>
+    <script src="<?= $baseUrl ?>/public/assets/src/js/w2/dashboard.js"></script>
+
+    
 </body>
 
 </html>
