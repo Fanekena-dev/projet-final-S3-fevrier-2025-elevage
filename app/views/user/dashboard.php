@@ -43,7 +43,7 @@
             - stock par aliment
             
             <section class="animal-list" id="section2">
-
+                
             </section>
 
         </div>

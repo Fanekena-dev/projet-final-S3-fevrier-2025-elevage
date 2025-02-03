@@ -23,6 +23,7 @@ class DashboardController
         $model=new AvalaibleAnimalsModel(Flight::mysql());   
         $availableAnimals = $model->getAvailableAnimals();
         $data = ['title' => 'Available Animals', 'availableAnimals' => $availableAnimals];
-        Flight::render('user/available_animals', $data);
+        // Flight::render('user/available_animals', $data);
+        Flight::json($availableAnimals);
     }
 }
