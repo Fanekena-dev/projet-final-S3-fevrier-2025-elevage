@@ -4,7 +4,7 @@ use flight\Engine;
 use flight\net\Router;
 
 use app\controllers\w1\LandingPageControllers;
-use app\controllers\w2\DashboardControllers;
+use app\controllers\w2\DashboardController;
 
 /** 
  * @var Router $router 
@@ -14,6 +14,6 @@ use app\controllers\w2\DashboardControllers;
 $router->get('/', [LandingPageControllers::class, 'landingPage']);
 
 $router->group('/user', function () use ($router) {
-    $router->get('/login', [DashboardControllers::class, 'renderDashboard']);
-    $router->get('/dashboard', [DashboardControllers::class, 'renderDashboard']);
+    $router->get('/sign-in', [DashboardController::class, 'renderDashboard']);
+    $router->get('/dashboard', [DashboardController::class, 'renderDashboard']);
 });

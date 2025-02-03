@@ -3,7 +3,7 @@ namespace app\controllers\w2;
 
 use FLight;
 
-class DashboardControllers
+class DashboardController
 {
     public function __construct()
     {
