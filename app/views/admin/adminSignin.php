@@ -31,7 +31,8 @@
                   type="text" 
                   class="form-control" 
                   placeholder="admin"
-                  name="admin-i">
+                  name="admin-id"
+                  required>
               </div>
               <div class="input-group mb-3">
                 <span 
@@ -40,9 +41,10 @@
                   type="password"
                   class="form-control"
                   placeholder="admin password"
-                  name="admin-pwd">
+                  name="admin-pwd"
+                  required>
               </div>
-              <div id="missing-field-errors"></div>
+              <div id="signin-errors"></div>
               <button 
                 type="submit"
                 class="btn btn-primary w-100"

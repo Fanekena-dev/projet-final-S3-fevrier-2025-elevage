@@ -1,10 +1,11 @@
 <?php
 
+use app\controllers\w1\AdminController;
 use flight\Engine;
 use flight\net\Router;
 
-use app\controllers\w1\LandingPageControllers;
-use app\controllers\w1\AdminSigninControllers;
+use app\controllers\w1\LandingPageController;
+use app\controllers\w1\AdminSigninController;
 use app\middlewares\w1\PrePostFormMiddleware;
 
 use app\controllers\w2\DashboardController;
@@ -14,7 +15,7 @@ use app\controllers\w2\DashboardController;
  * @var Engine $app
  */
 
-$router->get('/', [LandingPageControllers::class, 'landingPage']);
+$router->get('/', [LandingPageController::class, 'landingPage']);
 
 // ===========
 // # w1 routes
@@ -22,9 +23,11 @@ $router->get('/', [LandingPageControllers::class, 'landingPage']);
 $router->group(
   '/admin',
   function () use ($router) {
-    $router->get('/sign-in', [AdminSigninControllers::class, 'signinPage']);
-    $router->post('/sign-in/check', [AdminSigninControllers::class, 'signin'])
-      ->addMiddleware([new PrePostFormMiddleware((new AdminSigninControllers())->get_required_fields())]);
+    $router->get('/sign-in', [AdminSigninController::class, 'signinPage']);
+    $router->post('/sign-in/check', function () {
+      (new AdminSigninController())->signin($_POST['admin-id'], $_POST['admin-pwd']); })
+      ->addMiddleware([new PrePostFormMiddleware((new AdminSigninController())->get_required_fields())]);
+    $router->get('/home', [AdminController::class, 'homePage']);
   }
 );
 

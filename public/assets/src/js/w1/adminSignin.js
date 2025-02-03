@@ -14,10 +14,12 @@ $(document).ready(
           success: function (response) {
             console.log(response);
             const _response = JSON.parse(response);
-            if (!response.success) {
-              $('#missing-field-errors')
+            if (!_response.success) {
+              $('#signin-errors')
               .addClass('alert alert-danger mb-3')
               .text(_response.message);
+            } else {
+              window.location.href = '/projet-final-S3-fevrier-2025-elevage/admin/home';
             }
           },
           error: function (xhr, status, error) {

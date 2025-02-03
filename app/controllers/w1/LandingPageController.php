@@ -3,7 +3,7 @@ namespace app\controllers\w1;
 
 use FLight;
 
-class LandingPageControllers
+class LandingPageController
 {
   public function __construct()
   {
