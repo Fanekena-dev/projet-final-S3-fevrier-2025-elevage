@@ -5,6 +5,11 @@ breeding_animal_species
     species_id VARCHAR(70) PK
     species_name TEXT
 
+breeding_animal 
+    animal_id VARCHAR(70) PK
+    animal_name TEXT
+    description TEXT
+
 breeding_species_min_weight_sale -- poids minimal de vente
     min_sale_weight_id VARCHAR(70) PK
     species_id VARCHAR(70) FK
