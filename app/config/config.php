@@ -39,6 +39,9 @@ $app->set('flight.handle_errors', false); // if you want flight to handle errors
 $app->set('flight.views.path', __DIR__ . $ds . '..' . $ds . 'views'); // set the path to your view/template/ui files
 $app->set('flight.views.extension', '.php'); // set the file extension for your view/template/ui files
 $app->set('flight.content_length', true); // if flight should send a content length header
+$app->set('assets.framework', '/projet-final-S3-fevrier-2025-elevage/public/assets/framework');
+$app->set('assets.lib', '/projet-final-S3-fevrier-2025-elevage/public/assets/lib');
+$app->set('assets.src', '/projet-final-S3-fevrier-2025-elevage/public/assets/src');
 
 /* 
  * Get Tracy up and running
