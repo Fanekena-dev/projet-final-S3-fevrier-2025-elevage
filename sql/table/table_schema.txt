@@ -1,0 +1,145 @@
+CREATE DATABASE breeding;
+USE breeding;
+
+breeding_animal_species
+    species_id VARCHAR(70) PK
+    species_name TEXT
+
+breeding_species_min_weight_sale -- poids minimal de vente
+    min_sale_weight_id VARCHAR(70) PK
+    species_id VARCHAR(70) FK
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
+    min_sales_weight DECIMAL(7, 2)
+
+breeding_species_max_weight -- poids maximal des species
+    max_weight_id VARCHAR(70) PK
+    species_id VARCHAR(70) FK
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
+    max_weight DECIMAL(7, 2)
+
+breeding_species_selling_price -- price/kg
+    selling_price_id VARCHAR(70) PK
+    species_id VARCHAR(70) FK
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
+    selling_price DECIMAL(15, 2)
+
+breeding_species_day_without_eating -- nombre de jour avant de mourir si il ne mange pas
+    day_without_eating_id VARCHAR(70) PK 
+    species_id VARCHAR(70) FK
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
+    day_without_eating INT
+
+breeding_species_weight_loss -- % de perte de poids/jour sans manger
+    weight_loss_id VARCHAR(70) PK 
+    species_id VARCHAR(70) FK
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
+    weight_loss_percent DOUBLE
+
+-- User mitokana
+breeding_user
+    user_id VARCHAR(70) PK 
+    username TEXT
+    real_name TEXT
+    insert_date DATE
+    pwd TEXT
+    email TEXT
+    numero TEXT
+
+breeding_user_wallet
+    wallet_id VARCHAR(70) PK
+    user_id VARCHAR(70) FK
+    money DECIMAL(15, 2)
+    description TEXT
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
+
+-- Animal mitokana
+breeding_user_animal_mvt
+    mvt_id VARCHAR(70) PK
+    animal_id VARCHAR(70) FK
+    user_id VARCHAR(70) FK -- Tompon'ny le zavatra niseho
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
+    mvt_type VARCHAR(3) -- 1: entree, 2: sortie
+    mvt_price DECIMAL(15, 2)
+
+breeding_animal_day_without_eating -- nombre de jour avant de mourir si il ne mange pas
+    day_without_eating_id VARCHAR(70) PK 
+    animal_id VARCHAR(70) FK
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
+    day_without_eating INT
+
+breeding_animal_weight_loss -- % de perte de poids/jour sans manger
+    weight_loss_id VARCHAR(70) PK 
+    animal_id VARCHAR(70) FK
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
+    weight_loss_percent INT
+
+breeding_animal_weight
+    animal_id VARCHAR(70) PK
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
+    weight DECIMAL(7, 2)
+
+breeding_animal_pic
+    pic_id VARCHAR(70) PK
+    animal_id VARCHAR(70) FK
+    filename TEXT
+
+-- Marche mitokana
+breeding_animal_market_mvt
+    mvt_id VARCHAR(70) PK
+    animal_id VARCHAR(70) FK
+    user_id VARCHAR(70) FK -- iza no nandefa/naka sur le marche 
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
+    mvt_type INT
+    mvt_price DECIMAL(15, 2)
+
+-- Alimentation
+breeding_food
+    food_id VARCHAR(70) PK
+    food_name TEXT
+
+breeding_food_price
+    food_price_id VARCHAR(70) PK
+    food_id VARCHAR(70) FK
+    price DECIMAL(15, 2)
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
+
+breeding_species_food_weight_ratio
+    sfwr_id VARCHAR(70) PK
+    food_id VARCHAR(70) FK
+    species_id VARCHAR(70) FK
+    ratio DECIMAL(7, 2) -- %
+
+breeding_animal_food_weight_ratio -- kg 
+    sfwr_id VARCHAR(70) PK
+    food_id VARCHAR(70) FK
+    animal_id VARCHAR(70) FK
+    ratio DECIMAL(7, 2) -- %
+
+breeding_species_food -- kaly hoanina espece iray
+    species_food_id VARCHAR(70) PK 
+    species_id VARCHAR(70) FK
+    food_id VARCHAR(70) FK
+
+breeding_animal_food -- kaly hoanina biby iray
+    animal_food_id VARCHAR(70) PK 
+    animal_id VARCHAR(70) FK
+    food_id VARCHAR(70) FK
+
+breeding_animal_alimentation
+    alimentation_id VARCHAR(70) PK
+    animal_id VARCHAR(70) FK
+    food_id VARCHAR(70) FK
+    food_weight DECIMAL(7, 2) -- kilao 
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
+
+breeding_food_stock
+    food_stock_id VARCHAR(70) PK
+    food_id VARCHAR(70) FK
+    food_weight DECIMAL(7, 2) -- kilao
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
+
+breeding_food_market_stock
+    food_market_stock_id VARCHAR(70) PK
+    food_id VARCHAR(70) FK
+    food_weight DECIMAL(7, 2) -- kilao
+    insert_date DATE DEFAULT CURRENT_TIMESTAMP
