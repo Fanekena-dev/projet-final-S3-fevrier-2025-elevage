@@ -66,6 +66,9 @@ $baseUrl = Flight::get('flight.base_url');
     <script src="<?= $baseUrl ?>/public/assets/lib/chart.umd.js"></script>
     <!-- Custom Scripts -->
     <script src="<?= $baseUrl ?>/public/assets/src/js/w2/main.js"></script>
+    <script src="<?= $baseUrl ?>/public/assets/src/js/w2/dashboard.js"></script>
+
+    
 </body>
 
 </html>
