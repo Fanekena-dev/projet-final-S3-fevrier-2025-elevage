@@ -62,6 +62,12 @@ CREATE TABLE breeding_user (
     numero TEXT
 );
 
+
+CREATE TABLE breeding_admin (
+    admin_id VARCHAR(70) PRIMARY KEY,
+    pwd TEXT
+);
+
 CREATE TABLE breeding_user_wallet (
     wallet_id VARCHAR(70) PRIMARY KEY,
     user_id VARCHAR(70),
@@ -116,11 +122,17 @@ CREATE TABLE breeding_animal_market_mvt (
     mvt_id VARCHAR(70) PRIMARY KEY,
     animal_id VARCHAR(70),
     user_id VARCHAR(70),
+    admin_id VARCHAR(70),
     insert_date DATE DEFAULT CURRENT_TIMESTAMP,
     mvt_type INT,
     mvt_price DECIMAL(15,2),
     FOREIGN KEY (animal_id) REFERENCES breeding_animal(animal_id),
-    FOREIGN KEY (user_id) REFERENCES breeding_user(user_id)
+    FOREIGN KEY (user_id) REFERENCES breeding_user(user_id),
+    FOREIGN KEY (admin_id) REFERENCES breeding_admin(admin_id),
+    CHECK (
+        (admin_id IS NOT NULL AND user_id IS NULL) OR
+        (admin_id IS NULL AND user_id IS NOT NULL)
+    )
 );
 
 CREATE TABLE breeding_food (

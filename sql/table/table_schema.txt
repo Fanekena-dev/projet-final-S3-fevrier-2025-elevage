@@ -45,10 +45,14 @@ breeding_user
     user_id VARCHAR(70) PK 
     username TEXT
     real_name TEXT
-    insert_date DATE
     pwd TEXT
     email TEXT
     numero TEXT
+    role INT
+
+breeding_admin
+    admin_id VARCHAR(70) PK
+    pwd TEXT
 
 breeding_user_wallet
     wallet_id VARCHAR(70) PK
@@ -93,9 +97,14 @@ breeding_animal_market_mvt
     mvt_id VARCHAR(70) PK
     animal_id VARCHAR(70) FK
     user_id VARCHAR(70) FK -- iza no nandefa/naka sur le marche 
+    admin_id VARCHAR(70) FK
     insert_date DATE DEFAULT CURRENT_TIMESTAMP
     mvt_type INT
-    mvt_price DECIMAL(15, 2)
+    mvt_price DECIMAL(15, 2),
+    CHECK (
+        (admin_id IS NOT NULL AND user_id IS NULL) OR
+        (admin_id IS NULL AND user_id IS NOT NULL)
+    )
 
 -- Alimentation
 breeding_food
