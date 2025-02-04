@@ -1,8 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Sidebar -->
-        <nav class="col-md-3 d-none d-md-block sidebar p-3">
-            <h2>Logo</h2>
+        <nav class="col-md-3 d-none d-md-block sidebar p-2">
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link" href="#section1">Change date</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section2">My animals</a></li>
@@ -22,6 +21,10 @@
                             <div class="d-flex align-items-center gap-3">
                                 <button id="decrease-day" class="btn btn-outline-primary btn-lg">-1 Day</button>
                                 <button id="increase-day" class="btn btn-outline-primary btn-lg">+1 Day</button>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-3">
+                                <button id="reset" class="btn btn-danger btn-lg">Reset</button>
                             </div>
                         </div>
                     </div>

@@ -1,8 +1,14 @@
 $(document).ready(function () {
     const dateInput = $('#date-input');
-    if (dateInput.val() != null)
+    if (dateInput.val() != null) {
         handleDate();
+        handleReset();
+    }
 });
+
+//////////////////////////////
+/// handleDate methods
+//////////////////////////////
 
 // 03 Feb 2025
 function handleDate() {
@@ -80,5 +86,15 @@ function renderAnimals(animals) {
 
     html += `</div>`;
     section.append(html);
+}
+
+//////////////////////////////
+/// handleReset methods
+//////////////////////////////
+function handleReset() {
+    $("#reset").click((e)=>{
+        e.preventDefault();
+        alert("Do you really want to reset ?");
+    })
 }
 

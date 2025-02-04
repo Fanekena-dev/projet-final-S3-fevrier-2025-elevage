@@ -2,8 +2,20 @@
 * Template
 ******************************/
 .sidebar {
-    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    overflow-y: auto;
     padding-top: 20px;
+    margin-top: 75px;
+    height: 75vh;
+    border-right: 1px solid #ddd;
+}
+
+.content {
+    margin-left: 300px; /* Same as the sidebar width */
+    padding-left: 20px;
 }
 
 #section1 .row div {
