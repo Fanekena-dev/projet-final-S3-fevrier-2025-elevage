@@ -7,9 +7,13 @@
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link" href="#section1">Change date</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section2">My animals</a></li>
-                <li class="nav-item"><a class="nav-link" href="<?= $baseUrl ?>/animals/availableAnimals">Market</a></li>
+            </ul>
+            <hr>
+            <h3>Marketplace</h3>
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="<?= $baseUrl ?>/animals/availableAnimals">Buy</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section3" class="sell-link"
-                        data-animal-id="1">Sell Animal</a></li>
+                        data-animal-id="1">Sell</a></li>
             </ul>
         </nav>
 
