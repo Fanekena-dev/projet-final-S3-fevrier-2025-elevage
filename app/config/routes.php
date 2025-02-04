@@ -33,14 +33,21 @@ $router->group(
 );
 
 $router->group(
-  '/admin',
+  '/admin/species',
   function () use ($router) {
-    $router->get('/species', [AdminController::class, 'species']);
-    $router->get('/species/updatable-info', [SpeciesController::class, 'getSpeciesUpdatableInfo']);
-    $router->post('/species/update', function () {
+    $router->get('/', [AdminController::class, 'species']);
+    $router->get('/updatable-info', [SpeciesController::class, 'getSpeciesUpdatableInfo']);
+    $router->post('/update', function () {
       (new SpeciesController())->bigUpdate($_POST['species']);
     })
       ->addMiddleware([new PrePostFormMiddleware(['species'])]);
+  }
+);
+
+$router->group(
+  '/admin/animals',
+  function () use ($router) {
+    $router->get('/', [AdminController::class, 'animals']);
   }
 );
 
