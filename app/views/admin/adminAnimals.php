@@ -24,7 +24,7 @@
                 Animal management
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#update-species">Update species</a></li>
+                <li><a class="dropdown-item" href="#add-animals">Add animals</a></li>
               </ul>
             </li>
             <li class="nav-item">
@@ -36,6 +36,56 @@
           </ul>
       </nav>
     </div>
+    <section class="col-md-12 p-5" id="add-animals">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="h2">Add animals</div>
+          <hr>
+          <form 
+            action="<?= Flight::get('flight.base_url');?>/admin/animals/add"
+            class="px-5 py-5 border border-primary"
+            id="form-add-animal"
+            method="post">
+            <div class="mb-3">
+              <label 
+                for="animal-name" 
+                class="form-label">What is the name of your animal?</label>
+              <input
+                type="text" 
+                name="animal-name"
+                class="form-control" 
+                id="animal-name"
+                placeholder="Thunder"
+                required>
+            </div>
+            <div class="mb-3">
+              <label 
+                for="animal-species"
+                class="form-label">The species of the animal</label>
+                <select 
+                  name="animal-species" 
+                  id="animal-species"
+                  class="form-select"></select>
+            </div>
+            <div class="mb-3">
+              <label 
+                for="animal-description"
+                class="form-label">A little description of our friend</label>
+              <textarea 
+                name="animal-description" 
+                id="animal-description"
+                class="form-control"
+                placeholder="Majestic and powerful, our horses embody grace, strength, and spirit."></textarea>
+            </div>
+            <div id="add-animal-success"></div>
+            <button 
+              type="submit"
+              class="btn btn-primary w-100">Add our animal</button>
+          </form>
+        </div>
+        <div class="col-md-6"></div>
+      </div>
+    </section>
   </div>
   <script src="<?= Flight::get('assets.framework') ?>/bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
   <script src="<?= Flight::get('assets.lib') ?>/jquery-3.7.1.min.js"></script>

@@ -20,4 +20,9 @@ class SpeciesController
     echo json_encode(SpeciesModel::bigUpdate($updates));
     exit();
   }
+
+  public function index() {
+    echo json_encode(SpeciesModel::getAllSpecies());
+    exit();
+  }
 }
