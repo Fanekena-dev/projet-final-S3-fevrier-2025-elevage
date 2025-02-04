@@ -20,7 +20,7 @@ INSERT INTO breeding_animal (animal_id, animal_name, animal_species, description
 ('a02', 'Thunder', 's02', 'Fighting horse'),
 ('a03', 'Dolly', 's03', 'Hairy sheep'),
 ('a04', 'Vanessa', 's01', 'A cow like others'),
-('a05', 'Bessie', 's01', 'Milky cow');
+('a05', 'Besso', 's01', 'Milky cow');
 
 INSERT INTO breeding_animal_pic (pic_id, animal_id, filename) VALUES
 ('p01', 'a01', 'placeholder.png'),
