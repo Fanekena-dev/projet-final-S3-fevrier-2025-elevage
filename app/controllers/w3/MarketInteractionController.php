@@ -2,6 +2,7 @@
 namespace app\controllers\w3;
 
 use Flight;
+use app\models\w3\AvalaibleAnimalsModel;
 use app\models\w3\GenericDAOModel;
 
 class MarketInteractionController {
@@ -9,6 +10,15 @@ class MarketInteractionController {
     {
 
     }
+    
+    public function renderMarketplace()
+    {
+        $model = new AvalaibleAnimalsModel(Flight::mysql());
+        $availableAnimals = $model->getAvailableAnimals();
+        $data = ['title' => 'Marketplace', 'page' => 'marketplace', 'availableAnimals' => $availableAnimals];
+        FLight::render('user/template', $data);
+    }
+
     public function sendToMarket($data)
     {
         $market_table_name="breeding_animal_market_mvt";

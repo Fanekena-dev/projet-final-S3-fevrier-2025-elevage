@@ -9,6 +9,8 @@ use app\controllers\w1\AdminSigninController;
 use app\middlewares\w1\PrePostFormMiddleware;
 
 use app\controllers\w2\DashboardController;
+use app\controllers\w2\AuthController;
+
 use app\controllers\w3\MarketInteractionController;
 
 /** 
@@ -44,12 +46,28 @@ $router->group(
   }
 );
 
+//////////////////////////////
+/// W2 routes
+//////////////////////////////
+$router->group('/auth', function () use ($router) {
+  $router->get('/', [AuthController::class, 'renderUserSignIn']);
+
+  $router->get('/sign-in', [AuthController::class, 'renderUserSignIn']);
+  $router->get('/sign-up', [AuthController::class, 'renderUserSignUp']);
+
+  $router->post('/sign-in/check', [AuthController::class, 'signIn']);
+  $router->post('/sign-up/check', [AuthController::class, 'signUp']);
+});
+
 $router->group('/user', function () use ($router) {
   $router->get('/sign-in', [DashboardController::class, 'renderDashboard']);
   $router->get('/dashboard', [DashboardController::class, 'renderDashboard']);
 });
 
 $router->group('/animals', function () use ($router) {
+  $router->get('/dashboard', [DashboardController::class, 'renderDashboard']);
+  $router->get('/marketplace', [MarketInteractionController::class, 'renderMarketplace']);
+
   $router->get('/', [DashboardController::class, 'getAnimalJson']);
   $router->get('/date', [DashboardController::class, 'getMyAnimals']);
   $router->get('/availableAnimals', [DashboardController::class, 'renderAvailableAnimals']);
