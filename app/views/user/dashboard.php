@@ -46,7 +46,7 @@
             </section>
 
             <h3 class="text-center">Animal list</h3>
-            <section class="animal-list" id="section2">
+            <section class="animal-list d-flex " id="section2">
 
             </section>
 

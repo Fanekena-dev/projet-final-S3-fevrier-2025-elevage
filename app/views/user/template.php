@@ -41,11 +41,11 @@ $baseUrl = Flight::get('flight.base_url');
                             <a class="btn btn-outline-primary w-100 me-3" href="<?= $baseUrl ?>/admin/sign-in">Admin Login</a>
                         </li>
                         <li class="nav-item mb-2 mb-sm-0">
-                            <a class="btn btn-outline-primary w-100 me-3" href="<?= $baseUrl ?>/user/sign-in" >Login</a>
+                            <a class="btn btn-outline-primary w-100 me-3" href="<?= $baseUrl ?>/auth/sign-in" >Login</a>
                         </li>
                         <!-- Register Button -->
                         <li class="nav-item">
-                            <a class="btn btn-primary w-100" href="<?= $baseUrl ?>/user/sign-up" >Register</a>
+                            <a class="btn btn-primary w-100" href="<?= $baseUrl ?>/auth/sign-up" >Register</a>
                         </li>
                     </ul>
                 </div>

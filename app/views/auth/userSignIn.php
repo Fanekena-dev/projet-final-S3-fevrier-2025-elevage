@@ -19,12 +19,12 @@
 
                                     <div class="form-floating mb-3 mt-3">
                                         <input type="email" class="form-control" id="email" placeholder="Enter email"
-                                            name="email" value="john.doe@example.com">
+                                            name="email" value="jean@gmail.com">
                                         <label for="email">Email</label>
                                     </div>
                                     <div class="form-floating mt-3 mb-3">
                                         <input type="password" class="form-control" id="password"
-                                            placeholder="Enter password" name="password" value="password1">
+                                            placeholder="Enter password" name="password" value="123">
                                         <label for="password">Password</label>
                                     </div>
                                     <div class="text-center pt-1 mb-3 pb-1">

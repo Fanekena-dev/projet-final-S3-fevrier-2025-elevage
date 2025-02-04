@@ -21,7 +21,7 @@ class DashboardController
 
     public function getMyAnimals()
     {
-        $model = new MyAnimalsModel(Flight::mysql(), 'user1');
+        $model = new MyAnimalsModel(Flight::mysql(), $_SESSION['user']['user_id']);
         $availableAnimals = $model->getMyAnimalsForADate($_GET['date']);
         $data = ['title' => 'Available Animals', 'availableAnimals' => $availableAnimals];
         Flight::json($availableAnimals);
@@ -29,7 +29,7 @@ class DashboardController
 
     public function getAnimalJson($idAnimal)
     {
-        $model = new MyAnimalsModel(Flight::mysql(), 'user1');
+        $model = new MyAnimalsModel(Flight::mysql(), $_SESSION['user']['user_id']);
         $animal = $model->getAnimal($idAnimal);
         return json_encode($animal);
     }

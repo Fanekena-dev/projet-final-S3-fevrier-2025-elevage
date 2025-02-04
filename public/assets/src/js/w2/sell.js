@@ -46,8 +46,8 @@ $(document).ready(function () {
 
         animals.forEach(animal => {
             const animalCard = `
-                <div class="animal-card" data-animal-id="${animal.animal_id}">
-                    <img src="${baseUrl}/public/assets/upload/${animal.pic[0].filename}" alt="${animal.animal_name}">
+                <div class="card animal-card" data-animal-id="${animal.animal_id}">
+                    <img src="${baseUrl}/public/assets/upload/${animal.pic[0].filename}" style="max-height:100px; max-width:100px;" alt="${animal.animal_name}">
                     <h5>${animal.animal_name}</h5>
                 </div>
             `;
@@ -56,11 +56,8 @@ $(document).ready(function () {
 
         $(".animal-card").click(function () {
             const animalId = $(this).data("animal-id");
-
             $(".animal-card").removeClass("active");
-
             $(this).addClass("active");
-
             $("#sell-animal-id").val(animalId);
         });
     }
