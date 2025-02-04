@@ -8,9 +8,9 @@ class AdminController
   public function __construct()
   {
   }
-  public function homePage()
+  public function species()
   {
-    Flight::render('admin/adminHome');
+    Flight::render('admin/adminSpecies');
     exit();
   }
 }
