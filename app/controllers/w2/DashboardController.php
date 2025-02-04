@@ -22,21 +22,27 @@ class DashboardController
     public function renderForm()
     {
         $usermodel = new UserModel(FLight::mysql());
-        $data = ['title' => 'Forms', 'page' => 'form', 'animals' => $this->getMyAnimals(date('Y-m-d H:i:s'))];
+        $data = ['title' => 'Forms', 'page' => 'form', 'animals' => $this->getMyAnimalsByDate(date('Y-m-d H:i:s'))];
         FLight::render('user/template', $data);
         exit();
     }
 
     public function getMyAnimalsJSON()
     {
-        $availableAnimals = $this->getMyAnimals($_GET['']);
+        $availableAnimals = $this->getMyAnimals();
         Flight::json($availableAnimals);
     }
 
-    public function getMyAnimals($date)
+    public function getMyAnimalsByDate($date)
     {
         $model = new MyAnimalsModel(Flight::mysql(), $_SESSION['user']['user_id']);
         $availableAnimals = $model->getMyAnimalsForADate($date);
+        return $availableAnimals;
+    }
+
+    public function getMyAnimals()
+    {
+        $availableAnimals = $this->getMyAnimalsByDate($_GET['date']);
         return $availableAnimals;
     }
 
@@ -47,8 +53,9 @@ class DashboardController
         return json_encode($animal);
     }
 
-    public function reset($idUser)
+    public function reset()
     {
+        $idUser = $_SESSION['user']['user_id'];
         $db=Flight::mysql();
         $tables=
         [
@@ -56,11 +63,18 @@ class DashboardController
         'breeding_user_animal_mvt',
         'breeding_user_wallet'
         ];
+        $ok = true;
         foreach($tables as $table)
         {
             $stat=$sql="DELETE FROM $table WHERE user_id=:idUser";
             $stat=$db->prepare($sql);
-            $stat->execute(['idUser'=>$idUser]);
+
+            if(!$stat->execute(['idUser'=>$idUser]))
+                $ok = false;
         }
+        if($ok)
+            echo json_encode(['success' => true, 'message' => 'Reset successful']);
+        else 
+            echo json_encode(['success' => false, 'message' => 'Reset unsuccessful']);
     }
 }

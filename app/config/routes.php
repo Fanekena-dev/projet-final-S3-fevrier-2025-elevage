@@ -13,6 +13,8 @@ use app\controllers\w2\DashboardController;
 use app\controllers\w2\AuthController;
 
 use app\controllers\w3\MarketInteractionController;
+use app\controllers\w3\AnimalSpecialValuesController;
+
 
 /** 
  * @var Router $router 
@@ -82,21 +84,25 @@ $router->group('/animals', function () use ($router) {
   $router->get('/form', [DashboardController::class, 'renderForm']);
   $router->get('/marketplace', [MarketInteractionController::class, 'renderMarketplace']);
 
-  $router->group('/update', function () use ($router) {
-    $router->get('/animals/update/day-before-dying', function () {
-      $animalSpecialValuesController = new AnimalSpecialValuesController();
-      $animalSpecialValuesController->updateDWE($_POST['animal_id'], date('Y-m-d H:i:s'), $_POST['value']);
-    });
-    $router->get('/animals/update/weight-loss', function () {
-      $animalSpecialValuesController = new AnimalSpecialValuesController();
-      $animalSpecialValuesController->updateWeightLossWithoutFood($_POST['animal_id'], date('Y-m-d H:i:s'), $_POST['value']);
-    });
-  });
 
   $router->get('/', [DashboardController::class, 'getAnimalJson']);
-  $router->get('/date', [DashboardController::class, 'getMyAnimals']);
+  $router->get('/date', [DashboardController::class, 'getMyAnimalsJSON']);
   $router->get('/availableAnimals', [DashboardController::class, 'renderAvailableAnimals']);
 
   $router->post('/sendToMarket', [MarketInteractionController::class, 'insert']);
   $router->post('/getFromMarket', [MarketInteractionController::class, 'getFromMarket']);
+
+  
+  $router->group('/update', function () use ($router) {
+    $router->post('/day-before-dying', function () {
+      $animalSpecialValuesController = new AnimalSpecialValuesController();
+      $animalSpecialValuesController->updateDWE($_POST['animal_id'], date('Y-m-d H:i:s'), $_POST['value']);
+    });
+    $router->post('/weight-loss', function () {
+      $animalSpecialValuesController = new AnimalSpecialValuesController();
+      $animalSpecialValuesController->updateWeightLossWithoutFood($_POST['animal_id'], date('Y-m-d H:i:s'), $_POST['value']);
+    });
+  });
 });
+
+$router->get('/reset', [DashboardController::class, 'reset']);

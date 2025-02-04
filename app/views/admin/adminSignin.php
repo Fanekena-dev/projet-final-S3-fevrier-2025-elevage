@@ -32,6 +32,7 @@
                   class="form-control" 
                   placeholder="admin"
                   name="admin-id"
+                  value="admin01"
                   required>
               </div>
               <div class="input-group mb-3">
@@ -42,6 +43,7 @@
                   class="form-control"
                   placeholder="admin password"
                   name="admin-pwd"
+                  value="adminpassword1"
                   required>
               </div>
               <div id="signin-errors"></div>

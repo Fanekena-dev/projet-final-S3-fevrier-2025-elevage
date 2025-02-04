@@ -96,6 +96,18 @@ function handleReset() {
     $("#reset").click((e)=>{
         e.preventDefault();
         alert("Do you really want to reset ?");
+
+        $.ajax({
+            url: `${baseUrl}/reset`,
+            type: "GET",
+            success: function(response) {
+                const _response = JSON.parse(response);
+                if(_response.success)
+                    alert(_response.message);
+                else 
+                    alert(_response.message);
+            }
+        })
     })
 }
 
