@@ -5,7 +5,7 @@ use Flight;
 use PDO;
 use app\models\w3;
 
-class userModel {
+class UserModel {
     protected $db;
     protected $table_name;
 
@@ -71,5 +71,16 @@ class userModel {
             return ['status' => 'success', 'message' => 'email removed'];
         
         return ['status' => 'error', 'message' => 'User doesn\'t exist'];
+    }
+
+    //////////////////////////////
+    /// Balance
+    //////////////////////////////
+    public function getUserBalance($userId) {
+        $query = "SELECT SUM(money) AS balance FROM breeding_user_wallet WHERE user_id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->execute([$userId]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['balance'] ?? 0;
     }
 }

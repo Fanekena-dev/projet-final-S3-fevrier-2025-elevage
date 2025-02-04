@@ -85,7 +85,7 @@ class MyAnimalsModel
     {
         $sql = "SELECT * FROM $this->picsTable WHERE animal_id = :idAnimal";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(['idAnimal' => $idAnimal]);
+        $stmt->execute([':idAnimal' => $idAnimal]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

@@ -39,7 +39,7 @@
                     <!-- Current Capital -->
                     <div class="col-md-3">
                         <div class="p-3 mb-3 text-center">
-                            <h4 class="mb-0">$ <?= number_format(50000) ?> ar</h4>
+                            <h4 class="mb-0">$ <?= number_format($balance) ?></h4>
                         </div>
                     </div>
                 </div>

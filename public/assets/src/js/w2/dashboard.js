@@ -73,9 +73,10 @@ function renderAnimals(animals) {
 
     let html = `<div class="animal-list">`;
     animals.forEach(animal => {
+        console.log(animals);   
         html += `
             <div class="card animal-card" data-animal-id="${animal.animal_id}">
-                <img src="${baseUrl}/public/assets/upload/${animal.pic[0]}" alt="${animal.animal_name}">
+                <img src="${baseUrl}/public/assets/upload/${animal.pic[0].filename}" alt="${animal.animal_name}">
                 <div class="card-body">
                     <h2>${animal.animal_name}</h2>
                     <p>${animal.description}</p>
