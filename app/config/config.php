@@ -42,6 +42,8 @@ $app->set('flight.content_length', true); // if flight should send a content len
 $app->set('assets.framework', '/projet-final-S3-fevrier-2025-elevage/public/assets/framework');
 $app->set('assets.lib', '/projet-final-S3-fevrier-2025-elevage/public/assets/lib');
 $app->set('assets.src', '/projet-final-S3-fevrier-2025-elevage/public/assets/src');
+$app->set('assets.upload', '/projet-final-S3-fevrier-2025-elevage/public/assets/upload');
+
 
 /* 
  * Get Tracy up and running
