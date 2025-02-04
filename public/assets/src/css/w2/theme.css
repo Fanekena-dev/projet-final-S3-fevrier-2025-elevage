@@ -1,11 +1,9 @@
 /* Light theme */
-html[data-bs-theme="light"] footer,
 html[data-bs-theme="light"] header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
 }
 
 /* Dark theme */
-html[data-bs-theme="dark"] footer,
 html[data-bs-theme="dark"] header {
     box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2); /* Light shadow with white color */
 }
