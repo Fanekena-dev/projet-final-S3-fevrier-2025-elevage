@@ -34,6 +34,7 @@ $router->group('/user', function () use ($router) {
 });
 
 $router->group('/animals', function () use ($router) {
+  $router->get('/', [DashboardController::class, 'getAnimalJson']);
   $router->get('/date', [DashboardController::class, 'getMyAnimals']);
   $router->get('/availableAnimals', [DashboardController::class, 'renderAvailableAnimals']);
 });
