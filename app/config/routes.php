@@ -82,6 +82,17 @@ $router->group('/animals', function () use ($router) {
   $router->get('/form', [DashboardController::class, 'renderForm']);
   $router->get('/marketplace', [MarketInteractionController::class, 'renderMarketplace']);
 
+  $router->group('/update', function () use ($router) {
+    $router->get('/animals/update/day-before-dying', function () {
+      $animalSpecialValuesController = new AnimalSpecialValuesController();
+      $animalSpecialValuesController->updateDWE($_POST['animal_id'], date('Y-m-d H:i:s'), $_POST['value']);
+    });
+    $router->get('/animals/update/weight-loss', function () {
+      $animalSpecialValuesController = new AnimalSpecialValuesController();
+      $animalSpecialValuesController->updateWeightLossWithoutFood($_POST['animal_id'], date('Y-m-d H:i:s'), $_POST['value']);
+    });
+  });
+
   $router->get('/', [DashboardController::class, 'getAnimalJson']);
   $router->get('/date', [DashboardController::class, 'getMyAnimals']);
   $router->get('/availableAnimals', [DashboardController::class, 'renderAvailableAnimals']);
