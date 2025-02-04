@@ -51,10 +51,21 @@ function fetchAnimals() {
 }
 
 function renderAnimals(animals) {
-    $('#section2').html(""); 
+    const section = $('#section2');
+    section.html("");
+
+    if (animals.length === 0) {
+        section.append(`
+            <div class="jumbotron bg-primary-subtle d-flex flex-column align-items-center justify-content-center text-center">
+                <i class="fas fa-box-open fa-5x text-secondary"></i>
+                <h3 class="mt-3">No animals available</h3>
+                <p class="text-muted">Check back later or add new animals.</p>
+            </div>
+            `);
+        return;
+    }
 
     let html = `<div class="animal-list">`;
-    
     animals.forEach(animal => {
         html += `
             <div class="card">
@@ -68,6 +79,6 @@ function renderAnimals(animals) {
     });
 
     html += `</div>`;
-    $('#section2').append(html);
+    section.append(html);
 }
 

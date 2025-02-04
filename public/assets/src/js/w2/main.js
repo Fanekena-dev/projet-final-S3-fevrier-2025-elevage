@@ -3,6 +3,7 @@ var baseUrl = `/projet-final-S3-fevrier-2025-elevage`; // Should be the same as 
 
 $(document).ready(function () {
     setMainMarginTop();
+    setupSmoothScroll();    
     toggleTheme();
 });
 
@@ -23,6 +24,22 @@ function setMainMarginTop() {
         const headerHeight = header.offsetHeight;
         main.style.marginTop = `${headerHeight + 30}px`;
     }
+}
+
+function setupSmoothScroll() {
+    const header = document.querySelector('header');
+    const offset = header ? header.offsetHeight + 30 : 60;
+
+    $('a[href^="#"]').on('click', function (event) {
+        const target = $(this.getAttribute('href'));
+        if (target.length) {
+            event.preventDefault();
+            $('html, body').animate(
+                { scrollTop: target.offset().top - offset }, 
+                500
+            );
+        }
+    });
 }
 
 /**
