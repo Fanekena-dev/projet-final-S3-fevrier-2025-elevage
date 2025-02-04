@@ -12,6 +12,7 @@ $baseUrl = Flight::get('flight.base_url');
     <link rel="stylesheet" href="<?= Flight::get('assets.lib') ?>/fontawesome-free-6.7.2-web/css/all.min.css">
     <link rel="stylesheet" href="<?= Flight::get('assets.src') ?>/css/w2/theme.css">
     <link rel="stylesheet" href="<?= Flight::get('assets.src') ?>/css/w2/auth.css">
+    <link rel="stylesheet" href="<?= Flight::get('assets.src') ?>/css/w2/landing.css">
 </head>
 
 <body>
@@ -90,8 +91,8 @@ $baseUrl = Flight::get('flight.base_url');
 
                             <!-- Slide 3: Financial Tracking -->
                             <div class="carousel-item">
-                                <img src="<?= $baseUrl; ?>/public/assets/img/ride.svg"
-                                    class="d-block w-100 img-fluid" alt="Financial Tracking">
+                                <img src="<?= $baseUrl; ?>/public/assets/img/ride.svg" class="d-block w-100 img-fluid"
+                                    alt="Financial Tracking">
                                 <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
                                     <h5 class="text-white">Smart Financial Tracking
                                     </h5>
@@ -116,15 +117,17 @@ $baseUrl = Flight::get('flight.base_url');
             </div>
         </section>
     </main>
-
+    
     <footer class="container-fluid">
         <div class="card">
-            <div class="card-body">
-                <p>3251 - 3286 - 3291</p>
-                <a class="btn btn-outline-primary me-3" href="<?= Flight::get('flight.base_url'); ?>/admin/sign-in">AdminLogin</a>
+            <div class="card-body d-flex justify-content-around align-items-center">
+                <p class="mb-0">3251 - 3286 - 3291</p>
+                <a class="btn btn-outline-primary"
+                    href="<?= Flight::get('flight.base_url'); ?>/admin/sign-in">AdminLogin</a>
             </div>
         </div>
     </footer>
+
 
     <script src="<?= Flight::get('assets.framework') ?>/bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
     <script src="<?= Flight::get('assets.lib') ?>/jquery-3.7.1.min.js"></script>
