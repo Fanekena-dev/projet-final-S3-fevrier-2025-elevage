@@ -19,12 +19,25 @@ class DashboardController
         exit();
     }
 
-    public function getMyAnimals()
+    public function renderForm()
+    {
+        $usermodel = new UserModel(FLight::mysql());
+        $data = ['title' => 'Forms', 'page' => 'form', 'animals' => $this->getMyAnimals(date('Y-m-d H:i:s'))];
+        FLight::render('user/template', $data);
+        exit();
+    }
+
+    public function getMyAnimalsJSON()
+    {
+        $availableAnimals = $this->getMyAnimals($_GET['']);
+        Flight::json($availableAnimals);
+    }
+
+    public function getMyAnimals($date)
     {
         $model = new MyAnimalsModel(Flight::mysql(), $_SESSION['user']['user_id']);
-        $availableAnimals = $model->getMyAnimalsForADate($_GET['date']);
-        $data = ['title' => 'Available Animals', 'availableAnimals' => $availableAnimals];
-        Flight::json($availableAnimals);
+        $availableAnimals = $model->getMyAnimalsForADate($date);
+        return $availableAnimals;
     }
 
     public function getAnimalJson($idAnimal)

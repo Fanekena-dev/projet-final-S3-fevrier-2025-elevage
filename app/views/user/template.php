@@ -14,6 +14,7 @@ $baseUrl = Flight::get('flight.base_url');
     <!-- Custom css -->
     <link rel="stylesheet" href="<?= $baseUrl ?>/public/assets/src/css/w2/theme.css">
     <link rel="stylesheet" href="<?= $baseUrl ?>/public/assets/src/css/w2/dashboard.css">
+    <link rel="stylesheet" href="<?= $baseUrl ?>/public/assets/src/css/w2/form.css">
 </head>
 
 <body>
@@ -32,20 +33,25 @@ $baseUrl = Flight::get('flight.base_url');
                 <!-- Navbar Links -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto d-flex gap-2 align-items-center">
+                        <li class="nav-item mb-2 mb-sm-0">
+                            <a class="nav-link" href="<?= $baseUrl ?>/animals/form">Update animals information</a>
+                        </li>
+
                         <!-- Theme Switch Button -->
                         <li class="nav-item me-3">
                             <?php include 'public/temp/btn-theme.php'; ?>
                         </li>
                         <!-- Login Button -->
                         <li class="nav-item mb-2 mb-sm-0">
-                            <a class="btn btn-outline-primary w-100 me-3" href="<?= $baseUrl ?>/admin/sign-in">Admin Login</a>
+                            <a class="btn btn-outline-primary w-100 me-3" href="<?= $baseUrl ?>/admin/sign-in">Admin
+                                Login</a>
                         </li>
                         <li class="nav-item mb-2 mb-sm-0">
-                            <a class="btn btn-outline-primary w-100 me-3" href="<?= $baseUrl ?>/auth/sign-in" >Login</a>
+                            <a class="btn btn-outline-primary w-100 me-3" href="<?= $baseUrl ?>/auth/sign-in">Login</a>
                         </li>
                         <!-- Register Button -->
                         <li class="nav-item">
-                            <a class="btn btn-primary w-100" href="<?= $baseUrl ?>/auth/sign-up" >Register</a>
+                            <a class="btn btn-primary w-100" href="<?= $baseUrl ?>/auth/sign-up">Register</a>
                         </li>
                     </ul>
                 </div>
@@ -69,7 +75,7 @@ $baseUrl = Flight::get('flight.base_url');
     <script src="<?= $baseUrl ?>/public/assets/src/js/w2/dashboard.js"></script>
     <script src="<?= $baseUrl ?>/public/assets/src/js/w2/detail.js"></script>
     <script src="<?= $baseUrl ?>/public/assets/src/js/w2/sell.js"></script>
-    
+
 </body>
 
 </html>

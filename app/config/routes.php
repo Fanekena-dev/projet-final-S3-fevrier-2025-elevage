@@ -66,6 +66,7 @@ $router->group('/user', function () use ($router) {
 
 $router->group('/animals', function () use ($router) {
   $router->get('/dashboard', [DashboardController::class, 'renderDashboard']);
+  $router->get('/form', [DashboardController::class, 'renderForm']);
   $router->get('/marketplace', [MarketInteractionController::class, 'renderMarketplace']);
 
   $router->get('/', [DashboardController::class, 'getAnimalJson']);
