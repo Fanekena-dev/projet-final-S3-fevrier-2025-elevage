@@ -19,7 +19,7 @@ $(document).ready(
               .addClass('alert alert-danger mb-3')
               .text(_response.message);
             } else {
-              window.location.href = '/projet-final-S3-fevrier-2025-elevage/admin/home';
+              window.location.href = '/projet-final-S3-fevrier-2025-elevage/admin/species';
             }
           },
           error: function (xhr, status, error) {
