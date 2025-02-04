@@ -8,6 +8,7 @@ use app\controllers\w1\AdminSigninControllers;
 use app\middlewares\w1\PrePostFormMiddleware;
 
 use app\controllers\w2\DashboardController;
+use app\controllers\w3\MarketInteractionController;
 
 /** 
  * @var Router $router 

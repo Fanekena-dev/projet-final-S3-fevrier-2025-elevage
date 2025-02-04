@@ -1,7 +1,8 @@
 <?php
-namespace app\models\backoffice;
+namespace app\models\w3;
 
 use Flight;
+use PDO;
 
 class GenericDAOModel {
 
