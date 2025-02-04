@@ -26,4 +26,20 @@ class MarketInteractionController {
         //atao eto ny insertion ana data anatin'ny table ho an'ny market
 
     }
+
+    
+    public function insert()
+    {
+        $data = [
+            'animal_id' => $_POST['animal_id'],
+            'user_id' => $_POST['user_id'],
+            'admin_id' => NULL,
+            'insert_date' => $_POST['insert_date'],
+            'type' => "IN", //IN-OUT
+            'money' => $_POST['price'],
+            'description' => 'Vente animal:' . $_POST['animal_id'] . 'le [' . $_POST['insert_date'] . ']'
+        ];
+        $this->sendToMarket($data);
+        Flight::redirect('/user/dashboard');
+    }
 }
