@@ -107,7 +107,8 @@ CREATE TABLE breeding_animal_weight_loss (
 );
 
 CREATE TABLE breeding_animal_weight (
-    animal_id VARCHAR(70) PRIMARY KEY,
+    animal_weight_id VARCHAR(70) PRIMARY KEY,
+    animal_id VARCHAR(70),
     insert_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     weight DECIMAL(7,2),
     FOREIGN KEY (animal_id) REFERENCES breeding_animal(animal_id)

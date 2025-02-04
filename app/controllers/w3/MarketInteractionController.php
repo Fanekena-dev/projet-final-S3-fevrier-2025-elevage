@@ -29,6 +29,13 @@ class MarketInteractionController
         $marketInsertionModel->insert($market_data);
 
 
+        $user_table_name = "breeding_user_animal_mvt";
+        $user_data = ['animal_id' => $data['animal_id'], 'user_id' => $data['user_id'], 'admin_id' => $data['admin_id'], 'insert_date' => $data['insert_date'], 'mvt_type' => "OUT", 'mvt_price' => $data['money']];
+        $userInsertionModel = new GenericDAOModel(Flight::mysql(), "mvt", $user_table_name, "mvt_id");
+        $userInsertionModel->insert($user_data);
+
+
+
         //debit immediat du montant de la vente dans le compte de l'utilisateur
         $wallet_table_name = "breeding_user_wallet";
         $walletnsertionModel = new GenericDAOModel(Flight::mysql(), "wallet", $wallet_table_name, "wallet_id");
