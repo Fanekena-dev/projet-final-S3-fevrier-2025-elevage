@@ -37,15 +37,8 @@
                     </div>
                 </div>
             </section>
-
-            - capital actuel
-            - etat de chaque animal
-            - efa nikaly sa tsia
-            - sinon efa firy andro zay
-            - poids
-            - fahasalamana
-            - stock par aliment
             
+            <h3 class="text-center">Animal list</h3>
             <section class="animal-list" id="section2">
                 
             </section>

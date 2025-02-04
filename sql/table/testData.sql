@@ -16,9 +16,12 @@ INSERT INTO breeding_animal_species (species_id, species_name) VALUES
 
 -- Insertion dans breeding_animal
 INSERT INTO breeding_animal (animal_id, animal_name, animal_species, description) VALUES
-('a01', 'Bessie', 's01', 'Vache laitière'),
-('a02', 'Thunder', 's02', 'Cheval de trait'),
-('a03', 'Dolly', 's03', 'Mouton laineux');
+('a01', 'Bessie', 's01', 'Milky cow'),
+('a02', 'Thunder', 's02', 'Fighting horse'),
+('a03', 'Dolly', 's03', 'Hairy sheep'),
+('a04', 'Vanessa', 's01', 'A cow like others'),
+('a05', 'Bessie', 's01', 'Milky cow');
+
 
 -- Insertion dans breeding_species_min_weight_sale
 INSERT INTO breeding_species_min_weight_sale (min_sale_weight_id, species_id, min_sales_weight) VALUES
@@ -88,6 +91,9 @@ INSERT INTO breeding_animal_weight (animal_id, weight) VALUES
 INSERT INTO breeding_user_animal_mvt (mvt_id, animal_id, user_id, insert_date, mvt_type, mvt_price)
 VALUES
 ('MVT001', 'a01', 'user1', CURRENT_DATE, 'IN', 200.00),  -- User1 acquiring an animal
-    ('MVT002', 'a02', 'user1', CURRENT_DATE, 'IN', 250.00),  -- User1 selling an animal
-    ('MVT003', 'a03', 'user1', '2025-02-10', 'IN', 250.00),
-    ('MVT004', 'a01', 'user1', '2025-02-09', 'OUT', 250.00); 
+    ('MVT004', 'a01', 'user1', CURRENT_DATE, 'IN', 350.00),
+    ('MVT002', 'a02', 'user1', CURRENT_DATE, 'IN', 450.00),  -- User1 selling an animal
+    ('MVT003', 'a03', 'user1', '2025-02-07', 'IN', 550.00),
+    ('MVT005', 'a04', 'user1', '2025-02-08', 'IN', 650.00), 
+    ('MVT006', 'a03', 'user1', '2025-02-08', 'OUT', 650.00),
+    ('MVT007', 'a04', 'user1', '2025-02-09', 'OUT', 650.00);    
