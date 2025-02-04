@@ -8,6 +8,8 @@ use app\controllers\w1\AdminSigninControllers;
 use app\middlewares\w1\PrePostFormMiddleware;
 
 use app\controllers\w2\DashboardController;
+use app\controllers\w2\AuthController;
+
 use app\controllers\w3\MarketInteractionController;
 
 /** 
@@ -28,6 +30,19 @@ $router->group(
       ->addMiddleware([new PrePostFormMiddleware((new AdminSigninControllers())->get_required_fields())]);
   }
 );
+
+//////////////////////////////
+/// W2 routes
+//////////////////////////////
+$router->group('/auth', function () use ($router) {
+  $router->get('/', [AuthController::class, 'renderUserSignIn']);
+
+  $router->get('/sign-in', [AuthController::class, 'renderUserSignIn']);
+  $router->get('/sign-up', [AuthController::class, 'renderUserSignUp']);
+
+  $router->get('/sign-in/check', [AuthController::class, 'signIn']);
+  $router->get('/sign-up/check', [AuthController::class, 'signUp']);
+});
 
 $router->group('/user', function () use ($router) {
   $router->get('/sign-in', [DashboardController::class, 'renderDashboard']);
