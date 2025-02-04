@@ -40,6 +40,7 @@
         action="<?= Flight::get('flight.base_url') ?>/admin/species/update"
         method="post"
         id="a-very-big-form-indeed">
+        <div id="update-success"></div>
         <table 
           class="table" 
           id="table-update-species">
@@ -56,7 +57,12 @@
           <tbody>
           </tbody>
         </table>
-        <button type="submit" class="btn btn-primary float-end">Validate update</button>
+        <div class="float-end">
+          <button 
+            type="submit" 
+            class="btn btn-primary disabled"
+            id="update-btn-submit">Make some change first</button>
+        </div>
       </form>
     </section>
   </div>
