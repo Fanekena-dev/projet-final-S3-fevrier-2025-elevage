@@ -1,4 +1,5 @@
 <?php
+use app\controllers\w1\AnimalController;
 use flight\Engine;
 use flight\net\Router;
 
@@ -35,14 +36,26 @@ $router->group(
 );
 
 $router->group(
-  '/admin',
+  '/admin/species',
   function () use ($router) {
-    $router->get('/species', [AdminController::class, 'species']);
-    $router->get('/species/updatable-info', [SpeciesController::class, 'getSpeciesUpdatableInfo']);
-    $router->post('/species/update', function () {
+    $router->get('/', [AdminController::class, 'species']);
+    $router->get('/updatable-info', [SpeciesController::class, 'getSpeciesUpdatableInfo']);
+    $router->post('/update', function () {
       (new SpeciesController())->bigUpdate($_POST['species']);
     })
       ->addMiddleware([new PrePostFormMiddleware(['species'])]);
+    $router->get('/index', [SpeciesController::class, 'index']);
+  }
+);
+
+$router->group(
+  '/admin/animals',
+  function () use ($router) {
+    $router->get('/', [AdminController::class, 'animals']);
+    $router->post('/add', function () {
+      (new AnimalController())->addAnimal($_POST['animal-name'], $_POST['animal-species'], $_POST['animal-description']);
+    })
+      ->addMiddleware([new PrePostFormMiddleware(['animal-name', 'animal-species', 'animal-description'])]);
   }
 );
 

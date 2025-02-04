@@ -13,4 +13,9 @@ class AdminController
     Flight::render('admin/adminSpecies');
     exit();
   }
+  public function animals()
+  {
+    Flight::render('admin/adminAnimals');
+    exit();
+  }
 }

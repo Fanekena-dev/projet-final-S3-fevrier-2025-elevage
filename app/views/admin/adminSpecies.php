@@ -25,10 +25,13 @@
               </ul>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="<?= Flight::get('flight.base_url') ?>/admin/animals">Animal management</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="">Market management</a>
             </li>
             <li class="nav-item">
-              <a href="" class="nav-link">Food restocking</a>
+              <a class="nav-link" href="">Food restocking</a>
             </li>
           </ul>
       </nav>
