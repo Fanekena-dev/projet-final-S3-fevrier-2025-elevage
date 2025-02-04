@@ -38,15 +38,14 @@ $baseUrl = Flight::get('flight.base_url');
                         </li>
                         <!-- Login Button -->
                         <li class="nav-item mb-2 mb-sm-0">
-                            <a class="btn btn-outline-primary w-100 me-3" href="admin"
-                                data-translate="admin_login">Admin Login</a>
+                            <a class="btn btn-outline-primary w-100 me-3" href="<?= $baseUrl ?>/admin/sign-in">Admin Login</a>
                         </li>
                         <li class="nav-item mb-2 mb-sm-0">
-                            <a class="btn btn-outline-primary w-100 me-3" href="user" data-translate="login">Login</a>
+                            <a class="btn btn-outline-primary w-100 me-3" href="<?= $baseUrl ?>/user/sign-in" >Login</a>
                         </li>
                         <!-- Register Button -->
                         <li class="nav-item">
-                            <a class="btn btn-primary w-100" href="register" data-translate="register">Register</a>
+                            <a class="btn btn-primary w-100" href="<?= $baseUrl ?>/user/sign-up" >Register</a>
                         </li>
                     </ul>
                 </div>
@@ -68,7 +67,8 @@ $baseUrl = Flight::get('flight.base_url');
     <!-- Custom Scripts -->
     <script src="<?= $baseUrl ?>/public/assets/src/js/w2/main.js"></script>
     <script src="<?= $baseUrl ?>/public/assets/src/js/w2/dashboard.js"></script>
-
+    <script src="<?= $baseUrl ?>/public/assets/src/js/w2/detail.js"></script>
+    <script src="<?= $baseUrl ?>/public/assets/src/js/w2/sell.js"></script>
     
 </body>
 

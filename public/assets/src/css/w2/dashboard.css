@@ -14,7 +14,8 @@
 }
 
 .content {
-    margin-left: 300px; /* Same as the sidebar width */
+    margin-left: 300px;
+    /* Same as the sidebar width */
     padding-left: 20px;
 }
 
@@ -119,4 +120,98 @@
 .animal-list .card-body strong {
     font-weight: 600;
     color: #555;
+}
+
+/* *****************************
+ * Animal detail
+ ******************************/
+#mainPhoto {
+    background: #aaa;
+    display: block;
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.placeholder-photo {
+    display: inline-block;
+    background: #aaa;
+    height: 80px;
+    width: 80px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* *****************************
+ * Sell modal
+ *******************************/
+
+.vh-space {
+    height: 25vh;
+}
+
+.sell-animal-form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    border-bottom: 1px solid #ddd;
+}
+
+.sell-animal-form .modal-body {
+    padding: 20px;
+}
+
+.sell-animal-form .form-label {
+    font-weight: bold;
+}
+
+/* *****************************
+ * Sell 
+ ******************************/
+#section3 .animal-select-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+    gap: 15px;  /* Space between the cards */
+}
+
+#section3 .animal-card {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.3s ease, border 0.3s ease;
+}
+
+#section3 .animal-card:hover {
+    transform: scale(1.1);
+    border-color: #007bff;
+}
+
+#section3 .animal-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+#section3 .animal-card h5 {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.animal-card.active {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
