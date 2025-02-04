@@ -33,4 +33,21 @@ class DashboardController
         $animal = $model->getAnimal($idAnimal);
         return json_encode($animal);
     }
+
+    public function reset($idUser)
+    {
+        $db=Flight::mysql();
+        $tables=
+        [
+        'breeding_animal_market_mvt',
+        'breeding_user_animal_mvt',
+        'breeding_user_wallet'
+        ];
+        foreach($tables as $table)
+        {
+            $stat=$sql="DELETE FROM $table WHERE user_id=:idUser";
+            $stat=$db->prepare($sql);
+            $stat->execute(['idUser'=>$idUser]);
+        }
+    }
 }
