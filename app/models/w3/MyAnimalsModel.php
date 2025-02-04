@@ -85,14 +85,20 @@ class MyAnimalsModel
     {
         $sql = "SELECT * FROM $this->picsTable WHERE animal_id = :idAnimal";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute(['idAnimal' => $idAnimal]);
+        $stmt->execute([':idAnimal' => $idAnimal]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getAnimal($idAnimal)
     {
         $responseArray = [];
-        $sql = "SELECT * FROM $this->animalTable WHERE animal_id = :idAnimal";
+
+        $sql = "SELECT * 
+                FROM $this->animalTable A 
+                JOIN breeding_animal_species S 
+                ON A.animal_species = S.species_id
+                WHERE animal_id = :idAnimal";
+
         $stmt = $this->db->prepare($sql);
         $stmt->execute(['idAnimal' => $idAnimal]);
         $animal = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -102,6 +108,7 @@ class MyAnimalsModel
             $responseArray['animal_name'] = $animal['animal_name'];
             $responseArray['description'] = $animal['description'];
             $responseArray['animal_species'] = $animal['animal_species'];
+            $responseArray['species_name'] = $animal['species_name'];
             $responseArray['day_without_eating'] = $this->getAnimalDayWithoutEating($idAnimal);
             $responseArray['weight_loss_percent'] = $this->getAnimalWeightLoss($idAnimal);
             $responseArray['weight'] = $this->getAnimalWeight($idAnimal);

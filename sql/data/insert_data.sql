@@ -22,6 +22,27 @@ INSERT INTO breeding_animal (animal_id, animal_name, animal_species, description
 ('a04', 'Vanessa', 's01', 'A cow like others'),
 ('a05', 'Bessie', 's01', 'Milky cow');
 
+INSERT INTO breeding_animal_pic (pic_id, animal_id, filename) VALUES
+('p01', 'a01', 'placeholder.png'),
+('p02', 'a01', 'placeholder.png'),
+('p03', 'a01', 'placeholder.png'),
+('p04', 'a01', 'placeholder.png'),
+('p05', 'a01', 'placeholder.png'),
+
+('p06', 'a02', 'placeholder.png'),
+('p07', 'a02', 'placeholder.png'),
+('p08', 'a02', 'placeholder.png'),
+('p09', 'a02', 'placeholder.png'),
+
+('p010', 'a03', 'placeholder.png'),
+('p011', 'a03', 'placeholder.png'),
+('p012', 'a03', 'placeholder.png'),
+
+('p013', 'a04', 'placeholder.png'),
+('p014', 'a04', 'placeholder.png'),
+
+('p015', 'a05', 'placeholder.png');
+
 
 -- Insertion dans breeding_species_min_weight_sale
 INSERT INTO breeding_species_min_weight_sale (min_sale_weight_id, species_id, min_sales_weight) VALUES
