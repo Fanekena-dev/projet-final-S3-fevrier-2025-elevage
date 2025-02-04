@@ -8,7 +8,7 @@
                 <li class="nav-item"><a class="nav-link" href="#section1">Change date</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section2">My animals</a></li>
                 <li class="nav-item"><a class="nav-link" href="<?= $baseUrl ?>/animals/availableAnimals">Market</a></li>
-                <li class="nav-item"><a class="nav-link" href="javascript:void(0)" class="sell-link"
+                <li class="nav-item"><a class="nav-link" href="#section3" class="sell-link"
                         data-animal-id="1">Sell Animal</a></li>
             </ul>
         </nav>
@@ -56,10 +56,11 @@
                             <h5 class="modal-title">Sell Animal</h5>
                         </div>
                         <div class="modal-body">
-                            <form id="sellAnimalForm" method="POST" action="<?= $baseUrl ?>/sell/animal">
+                            <form id="sellAnimalForm" method="POST" action="<?= $baseUrl ?>/animals/sendToMarket">
                                 <div class="row g-3">
                                     <!-- Animal ID (hidden) -->
                                     <input type="hidden" id="sell-animal-id" name="animal_id">
+                                    <input type="hidden" id="user-id" name="user_id" value="user1">
 
                                     <!-- Price -->
                                     <div class="col-md-6 col-12">
@@ -74,7 +75,7 @@
                                     <div class="col-md-6 col-12">
                                         <div class="mb-3">
                                             <label for="sell-date" class="form-label">Sell Date</label>
-                                            <input type="date" class="form-control" id="sell-date" name="sell_date">
+                                            <input type="date" class="form-control" id="sell-date" name="insert_date">
                                             <small class="form-text text-muted">Optional</small>
                                         </div>
                                     </div>
