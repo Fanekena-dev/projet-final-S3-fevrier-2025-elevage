@@ -10,22 +10,21 @@
                                 <div class="text-center">
                                     <h4 class="mt-1 mb-3 pb-1 text-primary">Login</h4>
                                 </div>
-                                <form action="<?= $baseUrl ?>/auth/sign-in/check" method="post">
+                                <form action="<?= $baseUrl ?>/auth/sign-in/check" id="user-sign-in" method="post">
                                     <p class="lead">Please login to your account</p>
                                     <!-- Error message display -->
-                                    <?php if (!empty($message)): ?>
-                                        <div class="alert alert-secondary" role="alert">
-                                            <?= htmlspecialchars($message) ?>
-                                        </div>
-                                    <?php endif; ?>
+                                    <div class="" role="alert" id="message">
+
+                                    </div>
+
                                     <div class="form-floating mb-3 mt-3">
-                                        <input type="email" class="form-control" id="email"
-                                            placeholder="Enter email" name="email" value="john.doe@example.com">
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email"
+                                            name="email" value="john.doe@example.com">
                                         <label for="email">Email</label>
                                     </div>
                                     <div class="form-floating mt-3 mb-3">
                                         <input type="password" class="form-control" id="password"
-                                            placeholder="Enter password" name="password" value="123456789">
+                                            placeholder="Enter password" name="password" value="password1">
                                         <label for="password">Password</label>
                                     </div>
                                     <div class="text-center pt-1 mb-3 pb-1">
@@ -36,7 +35,8 @@
                                     </div>
                                     <div class="d-flex align-items-center justify-content-center pb-4">
                                         <p class="mb-0 me-2">Don't have an account?</p>
-                                        <a href="<?= $baseUrl ?>/admin/sign-in" class="btn btn-outline-primary">Create new</a>
+                                        <a href="<?= $baseUrl ?>/auth/sign-up" class="btn btn-outline-primary">Create
+                                            new</a>
                                     </div>
                                 </form>
                             </div>

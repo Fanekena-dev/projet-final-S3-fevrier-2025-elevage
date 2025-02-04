@@ -10,14 +10,11 @@
                                 <div class="text-center">
                                     <h4 class="mt-1 mb-3 text-primary">Register</h4>
                                 </div>
-                                <form action="<?= $baseUrl ?>/auth/sign-up/check" method="post">
+                                <form action="<?= $baseUrl ?>/auth/sign-up/check" method="post" id="user-sign-up">
                                     <p class="lead">Please create an account to get started</p>
                                     <!-- Error message display -->
-                                    <?php if (!empty($message)): ?>
-                                        <div class="alert alert-secondary" role="alert" id="message">
-                                            <?= htmlspecialchars($message) ?>
-                                        </div>
-                                    <?php endif; ?>
+                                    <div class="" role="alert" id="message">
+                                    </div>
 
                                     <div class="row g-3">
                                         <div class="col-md-4 col-12">
@@ -61,12 +58,12 @@
                                                 value="0381234567">
                                             <label for="numero">Numero</label>
                                         </div>
-                                        <div class="text-center pt-1  pb-1">
-                                            <button class="btn btn-primary btn-block mb-3">
+                                        <div class="text-center pt-1">
+                                            <button class="btn btn-primary btn-block">
                                                 Register
                                             </button>
                                         </div>
-                                        <div class="d-flex align-items-center justify-content-center pb-4">
+                                        <div class="d-flex align-items-center justify-content-center">
                                             <p class="mb-0 me-2">Already have an account?</p>
                                             <a href="<?= $baseUrl ?>/auth" class="btn btn-outline-primary">Login</a>
                                         </div>

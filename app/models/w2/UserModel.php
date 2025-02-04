@@ -3,6 +3,7 @@ namespace app\models\w2;
 
 use Flight;
 use PDO;
+use app\models\w3;
 
 class userModel {
     protected $db;
@@ -17,48 +18,57 @@ class userModel {
      * Authentication 
      * ---------------------------
      */
-    public function authenticateUser($username, $password) {
+    public function authenticateUser($email, $pwd) {
         // Checking if the user already exist at first place
-        $query = "SELECT * FROM breeding_user WHERE username = ? LIMIT 1";
+        $query = "SELECT * FROM breeding_user WHERE email = ? LIMIT 1";
         $STH = $this->db->prepare($query);
-        $STH->execute([$username]);
+        $STH->execute([$email]);
 
         $user = $STH->fetch(PDO::FETCH_ASSOC); // Fetch we only need: one row
         if(!$user) 
             return ['status' => 'error', 'message'=> 'User not found', 'user' => null];
 
-        if ($user['password'] !== $password) 
-            return ['status' => 'error', 'message' => 'Invalid password', 'user' => null];
+        if ($user['pwd'] !== $pwd) 
+            return ['status' => 'error', 'message' => 'Invalid pwd', 'user' => null];
 
         return ['status' => 'success', 'message' => 'User found successfully', 'user' => $user];
     }
 
-    public function addUser($username, $password) {
+    public function addUser($username, $real_name, $email, $pwd, $numero) {
         // Check if that user already exist
-        $query = "SELECT * FROM breeding_user WHERE username = ? LIMIT 1";
+        $query = "SELECT * FROM breeding_user WHERE email = ? LIMIT 1";
         $STH = $this->db->prepare($query);
-        $STH->execute([$username]);
+        $STH->execute([$email]);
         
         if ($STH->fetch(PDO::FETCH_ASSOC)) 
-            return ['status' => 'error', 'message' => 'Username already exists'];
+            return ['status' => 'error', 'message' => 'email already exists'];
+        
+        $userDAO = new w3\GenericDAOModel(Flight::mysql(), "user_", "breeding_user", "user_id");
 
-        // Insert 
-        $query = "INSERT INTO breeding_user (username, password) VALUES (?, ?)"; // role is by default client
-        $STH = $this->db->prepare($query);
+        $data = [
+            'username' => "$username",
+            'real_name' => "$real_name",
+            'pwd' => "$email",
+            'email' => "$pwd",
+            'numero' => "$numero"
+        ];
 
-        if ($STH->execute([$username, $password])) 
+        // Insert the new user
+        try {
+            $userDAO->insert($data);
             return ['status' => 'success', 'message' => 'New user registered'];
-
-        return ['status' => 'error', 'message' => 'Failed to register user'];
+        } catch (\Exception $e) {
+            return ['status' => 'error', 'message' => 'Failed to register user: ' . $e];
+        }
     }
 
-    public function removeUser($username, $password) {
-        $query = "SELECT * FROM breeding_user WHERE username = ? LIMIT 1";
+    public function removeUser($email, $pwd) {
+        $query = "SELECT * FROM breeding_user WHERE email = ? LIMIT 1";
         $STH = $this->db->prepare($query);
-        $STH->execute([$username]);
+        $STH->execute([$email]);
         
         if (!$STH->fetch(PDO::FETCH_ASSOC)) 
-            return ['status' => 'success', 'message' => 'Username removed'];
+            return ['status' => 'success', 'message' => 'email removed'];
         
         return ['status' => 'error', 'message' => 'User doesn\'t exist'];
     }

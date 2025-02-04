@@ -1,9 +1,9 @@
 <?php
 namespace app\controllers\w2;
 
-use Flight;
 use app\models\w2\UserModel;
 use PDO;
+use Flight;
 
 class AuthController {
     protected $userModel;
@@ -37,20 +37,25 @@ class AuthController {
     // User goes to dashboard page
     public function signIn() {
         $data = Flight::request()->data;
-        $username = $data->username;
+        $email = $data->email;
         $password = $data->password;
 
         try {
-            $result = $this->userModel->authenticateUser($username, $password);
+            $result = $this->userModel->authenticateUser($email, $password);
 
             if ($result['status'] === 'success') {
                 // Session is started at bootstrap.php
                 $_SESSION['user'] = $result['user'];
                 $_SESSION['loading'] = true;
-                Flight::redirect('/main');
+                
+                $data = [
+                    'success' => true,
+                ];
+
+                echo json_encode($data);
             } else {
-                $data = ['page' => 'user', 'message' => "Invalid username or password."]; // Message is not the one from the model, because it's more convenient to do this
-                Flight::render('auth/userSignin', $data);
+                $data = ['success' => false, 'message' => "Invalid email or password."]; // Message is not the one from the model, because it's more convenient to do this
+                echo json_encode($data);
             }
         } catch (\Exception $e) {
             Flight::render('error', ['message' => "AuthController->userLogin(): " . $e->getMessage()]); // error is the first file in view/
@@ -59,28 +64,22 @@ class AuthController {
 
     public function signUp() {
         $data = Flight::request()->data;
-
         $username = $data->username;
-        $password = $data->password;
-        $confirm_password = $data->confirm_password;
+        $real_name = $data->real_name;
+        $email = $data->email;
+        $pwd = $data->pwd;
+        $numero = $data->numero;
 
         try {
-            // Password validation 
-            if ($password !== $confirm_password) {
-                $data = ['page' => 'register', 'message' => 'Passwords do not match.'];
-                Flight::render('auth/userSignup', $data);
-                return;
-            }
-
             // Add user
-            $result = $this->userModel->addUser($username, $password);
+            $result = $this->userModel->addUser($username, $real_name, $email, $pwd, $numero);
 
             if ($result['status'] === 'success') {
-                $data = ['page' => 'user', 'message' => 'User created.'];
-                Flight::render('auth/template', $data);
+                $data = ['success' => true, 'message' => 'User created'];
+                echo json_encode($data);
             } else {
-                $data = ['page' => 'register', 'message' => $result['message']];
-                Flight::render('auth/template', $data);
+                $data = ['success' => false, 'message' => $result['message']];
+                echo json_encode($data);
             }
         } catch (\Exception $e) {
             Flight::render('error', ['message' => "AuthController->register(): " . $e-> getMessage()]);

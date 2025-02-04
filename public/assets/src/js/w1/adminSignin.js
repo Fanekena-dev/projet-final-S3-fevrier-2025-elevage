@@ -14,7 +14,7 @@ $(document).ready(
           success: function (response) {
             console.log(response);
             const _response = JSON.parse(response);
-            if (!response.success) {
+            if (!_response.success) {
               $('#missing-field-errors')
               .addClass('alert alert-danger mb-3')
               .text(_response.message);

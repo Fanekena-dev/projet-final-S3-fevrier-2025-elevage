@@ -58,8 +58,8 @@ $baseUrl = Flight::get('flight.base_url');
 
     <script src="<?= Flight::get('assets.framework') ?>/bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
     <script src="<?= Flight::get('assets.lib') ?>/jquery-3.7.1.min.js"></script>
-    <script src="<?= Flight::get('assets.src') ?>/js/w1/adminSignin.js"></script>
     <script src="<?= Flight::get('assets.src') ?>/js/w2/main.js"></script>
+    <script src="<?= Flight::get('assets.src') ?>/js/w2/auth.js"></script>
 </body>
 
 </html>

@@ -40,8 +40,8 @@ $router->group('/auth', function () use ($router) {
   $router->get('/sign-in', [AuthController::class, 'renderUserSignIn']);
   $router->get('/sign-up', [AuthController::class, 'renderUserSignUp']);
 
-  $router->get('/sign-in/check', [AuthController::class, 'signIn']);
-  $router->get('/sign-up/check', [AuthController::class, 'signUp']);
+  $router->post('/sign-in/check', [AuthController::class, 'signIn']);
+  $router->post('/sign-up/check', [AuthController::class, 'signUp']);
 });
 
 $router->group('/user', function () use ($router) {
