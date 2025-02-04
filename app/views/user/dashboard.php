@@ -90,15 +90,6 @@
                                         </div>
                                     </div>
 
-                                    <!-- Description -->
-                                    <div class="col-md-12 col-12">
-                                        <div class="mb-3">
-                                            <label for="sell-description" class="form-label">Description</label>
-                                            <textarea class="form-control" id="sell-description" name="description"
-                                                rows="3"></textarea>
-                                        </div>
-                                    </div>
-
                                     <!-- Submit Button -->
                                     <div class="col-md-12 col-12">
                                         <div class="d-grid gap-2">

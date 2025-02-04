@@ -2,6 +2,8 @@ $(document).ready(function () {
     const dateInput = $('#sell-date');
     const minDate = new Date('2025-02-03');  
 
+    setMinDate(minDate);
+
     function setMinDate(date) {
         dateInput.val(date.toISOString().split('T')[0]);  
     }
@@ -16,7 +18,6 @@ $(document).ready(function () {
             setMinDate(selectedDate);  
         }
 
-        
         fetchAnimals(selectedDate.toISOString().split('T')[0]);  
     });
 
